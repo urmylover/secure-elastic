@@ -1,0 +1,31 @@
+version: '2'
+services:
+    elasticsearch:
+        image: khezen/elasticsearch
+        environment:
+            ELASTIC_PWD: changeme
+            KIBANA_PWD: changeme
+        volumes:
+            # - elasticsearch/:/usr/share/elasticsearch/data
+            - ./elasticsearch/:/usr/share/elasticsearch/config
+        ports:
+             - "9200:9200"
+             - "9300:9300"
+        network_mode: bridge
+        restart: always
+
+    kibana:
+        links:
+            - elasticsearch
+        image: khezen/kibana:5
+        environment:
+            KIBANA_PWD: changeme
+            ELASTICSEARCH_HOST: elasticsearch
+            ELASTICSEARCH_PORT: 9200
+        volumes:
+            - ./elasticsearch/:/etc/elasticsearch
+            # - /etc/kibana:/etc/kibana
+        ports:
+             - "5601:5601"
+        network_mode: bridge
+        restart: always
