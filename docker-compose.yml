@@ -1,13 +1,16 @@
 version: '2'
 services:
     elasticsearch:
-        image: khezen/elasticsearch
+        # image: khezen/elasticsearch
+        build:
+            context: ./guard/
+            # dockerfile: Dockerfile
         environment:
             ELASTIC_PWD: changeme
             KIBANA_PWD: changeme
         volumes:
-            # - elasticsearch/:/usr/share/elasticsearch/data
-            - ./elasticsearch/:/usr/share/elasticsearch/config
+            - ./data:/usr/share/elasticsearch/data
+            - ./config:/usr/share/elasticsearch/config
         ports:
              - "9200:9200"
              - "9300:9300"
@@ -23,9 +26,13 @@ services:
             ELASTICSEARCH_HOST: elasticsearch
             ELASTICSEARCH_PORT: 9200
         volumes:
-            - ./elasticsearch/:/etc/elasticsearch
-            # - /etc/kibana:/etc/kibana
+            - ./config:/etc/elasticsearch
+            # - ./kibana:/etc/kibana
         ports:
              - "5601:5601"
         network_mode: bridge
         restart: always
+
+# volumes:
+#     config:
+#         external: false
