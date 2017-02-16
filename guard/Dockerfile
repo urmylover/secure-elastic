@@ -18,7 +18,7 @@ RUN bin/elasticsearch-plugin install -b com.floragunn:search-guard-5:5.2.0-10
 # retrieve conf
 COPY *.jar /usr/share/elasticsearch/plugins/search-guard-5/
 COPY ./elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
-COPY ./searchguard/ssl/etc/ /usr/share/elasticsearch/config/searchguard/
+COPY ./searchguard/ /usr/share/elasticsearch/config/searchguard/
 COPY ./src/ /run/
 RUN chmod +x -R /run/
 
