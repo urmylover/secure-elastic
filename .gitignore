@@ -2,3 +2,4 @@ data/*
 config/*
 elasticsearch/*
 !config/elasticsearch.yml
+!config/kibana.yml
