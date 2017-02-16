@@ -12,3 +12,5 @@ COPY entrypoint.sh /
 VOLUME /etc/kibana
 EXPOSE 5601
 ENTRYPOINT ["/entrypoint.sh"]
+CMD ["kibana"]
+
