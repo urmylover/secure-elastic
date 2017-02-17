@@ -1,4 +1,11 @@
 #!/bin/sh
+if [ "$(id -u)" != "0" ]; then
+   echo "Must be run as root (sudo)" 1>&2
+   exit 1
+fi
+
+hash ufw 2>/dev/null || apt-get install ufw -y
+
 ufw allow from $1
 # echo $1
 
