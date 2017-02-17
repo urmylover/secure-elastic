@@ -1,0 +1,24 @@
+#!/bin/sh
+ufw allow from $1
+# echo $1
+
+# echo $2
+
+# if [ $2 ]; then
+
+# ufw app default deny $2
+# # ufw app proto ipv6 default deny $2
+
+# ufw $3 allow from $1 to any app $2
+
+# else
+
+# ufw app default deny kibana
+# ufw allow from $1 to any app kibana
+# ufw app default deny ElasticSearch
+# ufw allow from $1 to any app ElasticSearch
+# ufw app default deny ElasticNode
+# ufw allow from $1 to any app ElasticNode
+
+# fi
+# ufw reload

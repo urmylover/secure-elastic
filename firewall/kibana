@@ -1,0 +1,4 @@
+[kibana]
+title=kibana firewall
+description=kibana access control
+ports=5601

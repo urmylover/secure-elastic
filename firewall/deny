@@ -1,0 +1,23 @@
+#!/bin/sh
+ufw deny from $1
+
+# echo $1
+
+# echo $2
+
+# if [ $2 ]; then
+
+# ufw app default allow $2
+# ufw deny from $1 app $2
+
+# else
+
+# ufw app default deny kibana
+# ufw deny from $1 to any app kibana
+# ufw app default deny ElasticSearch
+# ufw deny from $1 to any app ElasticSearch
+# ufw app default deny ElasticNode
+# ufw deny from $1 to any app ElasticNode
+
+# fi
+# ufw reload
