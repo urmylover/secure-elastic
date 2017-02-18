@@ -2,8 +2,16 @@
 
 set -m
 
+if [ ! -f /etc/kibana/kibana.yml ]; then
+    cp -r /.backup/kibana /etc/
+fi
+
 if [ "$KIBANA_PWD" ]; then
     sed -ri "s|elasticsearch.password:[^\r\n]*|elasticsearch.password: $KIBANA_PWD|" /etc/kibana/kibana.yml
+fi
+
+if [ "$CA_PATH" ]; then
+    sed -ri "s|elasticsearch.ssl.ca:[^\r\n]*|elasticsearch.ssl.ca: $CA_PATH|" /etc/kibana/kibana.yml
 fi
 
 if [ "$ELASTICSEARCH_URL" ]; then

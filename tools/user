@@ -1,0 +1,2 @@
+#!/bin/sh
+docker run -it --rm newfuture/secure-elastic /run/user.sh $@

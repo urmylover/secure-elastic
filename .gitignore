@@ -1,5 +1,6 @@
 data/*
 config/*
-elasticsearch/*
+test/data/*
+test/config/*
 !config/elasticsearch.yml
 !config/kibana.yml

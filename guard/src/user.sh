@@ -4,9 +4,9 @@ USER=$1
 HASH=$(bash /usr/share/elasticsearch/plugins/search-guard-5/tools/hash.sh -p $2)
 ROLES=${3:-admin}
 
-FILE=
+FILE=${4:-"/usr/share/elasticsearch/config/searchguard/sg_internal_users.yml"}
 CONFIG="$USER:\n  hash: '$HASH' #$USER\n  roles:\n   - $ROLES"
-LINE=$(grep -n "^$USER:$" txt | awk -F: '{print $1}')
+LINE=$(grep -n "^$USER:$" $FILE | awk -F: '{print $1}')
 if [ $LINE ];then
     echo "modify user $USER [$ROLES]"
     sed -i "/^$USER:/,+3d" $FILE

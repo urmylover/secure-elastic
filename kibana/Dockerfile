@@ -9,6 +9,8 @@ RUN /usr/share/kibana/bin/kibana-plugin install https://github.com/floragunncom/
 COPY kibana.yml /etc/kibana/kibana.yml
 COPY entrypoint.sh /
 
+COPY kibana.yml /.backup/kibana/kibana.yml
+
 VOLUME /etc/kibana
 EXPOSE 5601
 ENTRYPOINT ["/entrypoint.sh"]

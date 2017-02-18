@@ -52,7 +52,7 @@ searchguard.cookie.password: "4fjNPloEVvrVj28BsVh3jI8t3pmv7Qg6"
 
 # Optional setting that enables you to specify a path to the PEM file for the certificate
 # authority for your Elasticsearch instance.
-elasticsearch.ssl.ca: {CA_PATH}
+elasticsearch.ssl.ca: '{CA_PATH}'
 
 # To disregard the validity of SSL certificates, change this setting’s value to false.
 elasticsearch.ssl.verify: true
@@ -60,7 +60,7 @@ console.proxyConfig:
   - match:
       protocol: "https"
     ssl:
-        ca: {CA_PATH}
+        ca: '{CA_PATH}'
     #   ca: "/path/to/your/root-ca.pem"
 # console.proxyConfig:
 #   - match:
