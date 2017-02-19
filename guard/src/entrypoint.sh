@@ -15,6 +15,7 @@ if [ "$1" = 'elasticsearch' -a "$(id -u)" = '0' ]; then
 	sed -ri "s/discovery.zen.ping.unicast.hosts:[^\r\n]*/discovery.zen.ping.unicast.hosts: $HOSTS/" /usr/share/elasticsearch/config/elasticsearch.yml
 
 	/run/auth/certificates/gen_all.sh
+	
 	chown -R elasticsearch:elasticsearch /usr/share/elasticsearch
 	set -- gosu elasticsearch "$@"
 	ES_JAVA_OPTS="-Des.network.host=0.0.0.0  -Des.logger.level=INFO -Xms$HEAP_SIZE -Xmx$HEAP_SIZE" $@ &
@@ -31,8 +32,7 @@ if [ "$1" = 'elasticsearch' -a "$(id -u)" = '0' ]; then
 
 	/run/auth/users.sh
 	/run/auth/sgadmin.sh
-	$@ &
 	fg	
 else
-	$@ 
+	exec "$@" 
 fi
