@@ -1,4 +1,4 @@
-FROM kibana
+FROM kibana:5.2.0
 
 LABEL Description="kibana"
 
