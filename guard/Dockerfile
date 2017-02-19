@@ -1,4 +1,4 @@
-FROM elasticsearch
+FROM elasticsearch：5.2.0
 
 LABEL Description="elasticsearch search-guard"
 
@@ -13,7 +13,7 @@ ENV CLUSTER_NAME="elasticsearch" \
     KS_PWD="changeme"
 
 # install modules
-RUN bin/elasticsearch-plugin install -b com.floragunn:search-guard-5:5.2.1-11
+RUN bin/elasticsearch-plugin install -b com.floragunn:search-guard-5:5.2.0-10
 
 # retrieve conf
 COPY *.jar /usr/share/elasticsearch/plugins/search-guard-5/
