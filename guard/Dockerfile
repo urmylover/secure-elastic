@@ -1,4 +1,4 @@
-FROM elasticsearch：5.2.0
+FROM elasticsearch:5.2.0
 
 LABEL Description="elasticsearch search-guard"
 
