@@ -1,2 +1,4 @@
 #!/bin/sh
 docker run -it --rm -v"$(pwd)/config":/usr/share/elasticsearch/config newfuture/secure-elastic /run/user.sh $@
+
+docker-compose restart
