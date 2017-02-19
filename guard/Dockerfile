@@ -26,8 +26,8 @@ RUN mkdir -p /.backup/elasticsearch/ \
     &&  mv /usr/share/elasticsearch/config /.backup/elasticsearch/config
 
 
-VOLUME /usr/hare/elasticsearch/config
-VOLUME /usr/hare/elasticsearch/dara
+VOLUME /usr/share/elasticsearch/config
+VOLUME /usr/share/elasticsearch/dara
 
 ENTRYPOINT ["/run/entrypoint.sh"]
 CMD ["elasticsearch"]
