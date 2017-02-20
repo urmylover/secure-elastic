@@ -1,2 +1,2 @@
 #!/bin/sh
-docker run -it --rm --net=host -e ELASTIC_URL=https://elasticsearch:9200 -p5000:5000 newfuture/elastic-logview
+docker run -it --rm --net=host -p5000:5000 newfuture/elastic-logview
